@@ -44,7 +44,7 @@ if (isset($_GET['wsdl'])) {
 }
 else {
 	session_start();
-	$servidorSoap = new SoapServer('http://titanic.ecci.ucr.ac.cr:80/Carne/Gato/RPC-Encoded/?wsdl');//Falta poner la ruta en titanic
+	$servidorSoap = new SoapServer('http://titanic.ecci.ucr.ac.cr:80/~eb77519/Gato/RPC-Encode/?wsdl');//Falta poner la ruta en titanic
 
 	//Para evitar la excepción por defecto de SOAP PHP cuando no existe HTTP_RAW_POST_DATA,
 	//se regresa explícitamente el siguiente fallo cuando no hay solicitud (v.b. desde un navegador)

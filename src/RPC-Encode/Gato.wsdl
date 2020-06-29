@@ -4,12 +4,12 @@
 
 <definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-			 xmlns:tns="urn:ECCI_B77519_BXXXX_Gato"
+			 xmlns:tns="urn:ECCI_B77519_B72097_Gato"
 			 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 			 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 			 xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
-			 name="ECCI_B77519_BXXXX_Gato"
-			 targetNamespace="urn:ECCI_B77519_BXXXX_Gato">
+			 name="ECCI_B77519_B72097_Gato"
+			 targetNamespace="urn:ECCI_B77519_B72097_Gato">
 
 	<!-- Tipos complejos -->
 
@@ -72,7 +72,7 @@
 
 	<!-- Puerto para comunicar con la clase Gato, "ECCI_B77519_BXXXX_Gato" -->
 
-	<portType name="ECCI_B77519_BXXXX_GatoPort">
+	<portType name="ECCI_B77519_B72097_GatoPort">
 		<operation name="jugar">
 			<documentation>Gato::jugar()Metodo donde se cambia la casilla selecionada en el juego por una 'X'</documentation>
 			<input message="tns:jugarIn"/>
@@ -112,115 +112,115 @@
 
 	<!-- Vinculación de los llamados con el transporte - RPC, SOAP/Encoded over HTTP -->
 
-	<binding name="ECCI_B77519_BXXXX_GatoBinding" type="tns:ECCI_B77519_BXXXX_GatoPort">
+	<binding name="ECCI_B77519_B72097_GatoBinding" type="tns:ECCI_B77519_B72097_GatoPort">
 		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
 		
 		<operation name="jugar">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#jugar"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#jugar"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 
 		<operation name="juegaMaquina">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#juegaMaquina"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#juegaMaquina"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 		
 		<operation name="checkWin">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#checkWin"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#checkWin"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 
 		<operation name="checkCasillas">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#checkCasillas"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#checkCasillas"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 		
 		<operation name="getCasillasRestantes">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#getCasillasRestantes"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#getCasillasRestantes"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 
 
 		<operation name="setJugador">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#setJugador"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#setJugador"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>
 		
 
 		<operation name="getBoard">
-			<soap:operation soapAction="urn:ECCI_B77519_BXXXX_Gato#Gato#getBoard"/>
+			<soap:operation soapAction="urn:ECCI_B77519_B72097_Gato#Gato#getBoard"/>
 			<input>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</input>
 			<output>
 				<soap:body use="encoded"
 				           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
-						   namespace="urn:ECCI_B77519_BXXXX_Gato"/>
+						   namespace="urn:ECCI_B77519_B72097_Gato"/>
 			</output>
 		</operation>	
 	</binding>
 
 	<!-- Punto de comunicación con la clase Gato -->
 
-	<service name="ECCI_B77519_BXXXX_GatoService">
-		<port name="ECCI_B77519_BXXXX_GatoPort" binding="tns:ECCI_B77519_BXXXX_GatoBinding">
-			<soap:address location="http://titanic.ecci.ucr.ac.cr/Carne/"/>
+	<service name="ECCI_B77519_B72097_GatoService">
+		<port name="ECCI_B77519_B72097_GatoPort" binding="tns:ECCI_B77519_B72097_GatoBinding">
+			<soap:address location="http://titanic.ecci.ucr.ac.cr/~eb77519/Gato/RPC-Encode/?wsdl"/>
 		</port>
 	</service>
 </definitions>

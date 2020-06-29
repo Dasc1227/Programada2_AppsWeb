@@ -7,32 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace GatoRPCEncode
 {
     public partial class Gato : Form
     {
+        private ECCI.ECCI_B77519_B72097_GatoPortClient gato;
         public Gato()
         {
             InitializeComponent();
+            gato = new ECCI.ECCI_B77519_B72097_GatoPortClient();
         }
+    
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void Jugar()
-        {
-            //gato.jugar();
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_jugar_Click(object sender, EventArgs e)
         {
             Casilla1.Show();
             Casilla2.Show();
@@ -43,15 +36,100 @@ namespace GatoRPCEncode
             Casilla7.Show();
             Casilla8.Show();
             Casilla9.Show();
-            Jugar.Hide();
+            btn_jugar.Hide();
+            textBox1.Hide();
+            label3.Hide();
+
         }
 
+        private void Jugar(int jugada)
+        {
+            switch (jugada)
+            {
+                case 0:
+                    Casilla1.Text = "O";
+                    break;
+                case 1:
+                    Casilla2.Text = "O";
+                    break;
+                case 2:
+                    Casilla3.Text = "O";
+                    break;
+                case 3:
+                    Casilla4.Text = "O";
+                    break;
+                case 4:
+                    Casilla5.Text = "O";
+                    break;
+                case 5:
+                    Casilla6.Text = "O";
+                    break;
+                case 6:
+                    Casilla7.Text = "O";
+                    break;
+                case 7:
+                    Casilla8.Text = "O";
+                    break;
+                case 8:
+                    Casilla9.Text = "O";
+                    break;
+
+            }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+ 
         private void Casilla1_Click(object sender, EventArgs e)
         {
             if (Casilla1.Text.Equals("")) {
                 Casilla1.Text = "X";
-                //gato.jugar(0);
-          
+                gato.jugar(0); // se marca la jugada en el arreglo del php
+                
+
+                //Si gano con la jugada
+                if (gato.checkWin(0,"X"))
+                {
+                  
+                    MessageBox.Show("FELICIDADES, HAS GANADO");
+                    //Guardar resultados en el ranking
+                    this.Close();
+                    
+
+                }
+                else
+                {
+                    //Si ya no hay jugadas disponibles
+                    if (gato.getCasillasRestantes() == 0)
+                    {
+                        MessageBox.Show("Has empatado, mas suerte la proxima");
+                        //Guardar resultads
+                        this.Close();
+                    }
+                    //Si no, juega la maquina
+                    else {
+                        int jugada = gato.juegaMaquina();
+                        //Se marca la letra en el tablero
+                        Jugar(jugada);
+                        if (gato.checkWin(jugada, "O"))
+                        {
+                            MessageBox.Show("Has perdido");
+                            this.Close();
+                        }
+                        else {
+                            if(gato.getCasillasRestantes() == 0)
+                            {
+                                MessageBox.Show("Has empatado, mas suerte la proxima");
+                                this.Close();
+                            }
+                        }
+                    }
+
+                }
+                
             }
         }
 
@@ -133,6 +211,26 @@ namespace GatoRPCEncode
                 //gato.jugar(8);
               
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
