@@ -82,53 +82,59 @@ namespace GatoRPCEncode
 
         }
 
+        private void Presionado(int movimiento)
+        {
+            gato.jugar(movimiento); 
+
+
+            if (gato.checkWin(movimiento, "X"))
+            {
+
+                MessageBox.Show("FELICIDADES, HAS GANADO");
+       
+                this.Close();
+
+
+            }
+            else
+            {
+           
+                if (gato.getCasillasRestantes() == 0)
+                {
+                    MessageBox.Show("Has empatado, mas suerte la proxima");
+               
+                    this.Close();
+                }
+               
+                else
+                {
+                    int jugada = gato.juegaMaquina();
+                    
+                    Jugar(jugada);
+                    if (gato.checkWin(jugada, "O"))
+                    {
+                        MessageBox.Show("Has perdido");
+                        this.Close();
+                    }
+                    else
+                    {
+                        if (gato.getCasillasRestantes() == 0)
+                        {
+                            MessageBox.Show("Has empatado, mas suerte la proxima");
+                            this.Close();
+                        }
+                    }
+                }
+
+            }
+
+        }
  
         private void Casilla1_Click(object sender, EventArgs e)
         {
             if (Casilla1.Text.Equals("")) {
                 Casilla1.Text = "X";
-                gato.jugar(0); // se marca la jugada en el arreglo del php
-                
-
-                //Si gano con la jugada
-                if (gato.checkWin(0,"X"))
-                {
-                  
-                    MessageBox.Show("FELICIDADES, HAS GANADO");
-                    //Guardar resultados en el ranking
-                    this.Close();
-                    
-
-                }
-                else
-                {
-                    //Si ya no hay jugadas disponibles
-                    if (gato.getCasillasRestantes() == 0)
-                    {
-                        MessageBox.Show("Has empatado, mas suerte la proxima");
-                        //Guardar resultads
-                        this.Close();
-                    }
-                    //Si no, juega la maquina
-                    else {
-                        int jugada = gato.juegaMaquina();
-                        //Se marca la letra en el tablero
-                        Jugar(jugada);
-                        if (gato.checkWin(jugada, "O"))
-                        {
-                            MessageBox.Show("Has perdido");
-                            this.Close();
-                        }
-                        else {
-                            if(gato.getCasillasRestantes() == 0)
-                            {
-                                MessageBox.Show("Has empatado, mas suerte la proxima");
-                                this.Close();
-                            }
-                        }
-                    }
-
-                }
+                Presionado(0);
                 
             }
         }
@@ -138,8 +144,8 @@ namespace GatoRPCEncode
             if (Casilla2.Text.Equals(""))
             {
                 Casilla2.Text = "X";
-                //gato.jugar(1);
-                
+                Presionado(1);
+
             }
         }
 
@@ -148,8 +154,8 @@ namespace GatoRPCEncode
             if (Casilla3.Text.Equals(""))
             {
                 Casilla3.Text = "X";
-                //gato.jugar(2);
-              
+                Presionado(2);
+
             }
         }
 
@@ -158,7 +164,7 @@ namespace GatoRPCEncode
             if (Casilla4.Text.Equals(""))
             {
                 Casilla4.Text = "X";
-                //gato.jugar(3);
+                Presionado(3);
 
             }
         }
@@ -168,8 +174,8 @@ namespace GatoRPCEncode
             if (Casilla5.Text.Equals(""))
             {
                 Casilla5.Text = "X";
-                //gato.jugar(4);
-             
+                Presionado(4);
+
             }
         }
 
@@ -178,8 +184,8 @@ namespace GatoRPCEncode
             if (Casilla6.Text.Equals(""))
             {
                 Casilla6.Text = "X";
-                //gato.jugar(5);
-          
+                Presionado(5);
+
             }
         }
 
@@ -188,8 +194,8 @@ namespace GatoRPCEncode
             if (Casilla7.Text.Equals(""))
             {
                 Casilla7.Text = "X";
-                //gato.jugar(6);
-          
+                Presionado(6);
+
             }
         }
 
@@ -198,8 +204,8 @@ namespace GatoRPCEncode
             if (Casilla8.Text.Equals(""))
             {
                 Casilla8.Text = "X";
-                //gato.jugar(7);
-         
+                Presionado(7);
+
             }
         }
 
@@ -208,8 +214,8 @@ namespace GatoRPCEncode
             if (Casilla9.Text.Equals(""))
             {
                 Casilla9.Text = "X";
-                //gato.jugar(8);
-              
+                Presionado(8);
+
             }
         }
 
