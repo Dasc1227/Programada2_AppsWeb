@@ -12,7 +12,7 @@
 
 
 class Gato {
-	private $tablero = array('-', '-', '-', '-', '-', '-', '-', '-', '-'); //Tablero de tic tac toe
+	private $tablero = array("-", "-", "-", "-", "-", "-", "-", "-", "-"); //Tablero de tic tac toe
 	private $startTime; //tiempo de inicio del juego
 	private $endTime; //tiempo de fin del juego
 	private $casillasRestantes; //cantidad de casillas disponibles
@@ -25,28 +25,35 @@ class Gato {
 		$this->startTime = 0;
 		$this->endTime = 0;
 		$this->casillasRestantes = 9;
+		
+
 	}
 
 	//Verifica si la casilla sigue disponible, hay que investigar si esto se puede realizar desde la interfac
-	public function verificarCasilla($casilla)
+	
 	
 	//Metodo donde se cambia la casilla selecionada en el juego por una 'X'
 	public function jugar($casilla){
-		$this->$tablero[$casilla] = 'X';
-		$this->$casillasRestantes--;
+		$this->tablero[$casilla] = "X";
+		$this->casillasRestantes--;
 	}
 
 	//Metodo que genera el movimiento de la maquina rival o IA
 	public function juegaMaquina(){
 		
+		
 		$randomPlay = rand(0,8);
-		while((strcmp($this->$tablero[$randomPlay], '-') != 0))//Mientras este ocupad
+		while(true)//Mientras este ocupad
 		{
-			$randomPlay = rand(0,8);	
+			if($this->tablero[$randomPlay] != "-")
+				$randomPlay = rand(0,8);
+			else
+				break;		
 		}
-		$this->$tablero[$randomPlay] = 'O';
-		$this->$casillasRestantes--;
-		return $this->$randomPlay;
+		$this->tablero[$randomPlay] = "O";
+		$this->casillasRestantes--;
+		
+		return $randomPlay;
 	}
 
 	//Metodo que verifica si el jugador ganó
@@ -184,9 +191,10 @@ class Gato {
 	public function checkCasillas($contigua1, $contigua2,$simbolo){
 		
 		$gano = false;
-		if((strcmp($this->$tablero[$contigua1],$simbolo) === 0){
-			if((strcmp($this->$tablero[$contigua2],$simbolo) === 0){
+		if(strcmp($this->tablero[$contigua1],$simbolo) === 0){
+			if(strcmp($this->tablero[$contigua2],$simbolo) === 0){
 				$gano = true;
+				$this->reiniciarJuego();
 			}
 		}		
 
@@ -195,16 +203,24 @@ class Gato {
 
 	//Método que devuelve la cantidad de casillas restantes
 	public function getCasillasRestantes(){
+		if($this->$casillasRestantes === 0){
+			$this->reiniciarJuego();
+		}
 		return $this->$casillasRestantes;
 	}
 	//Metodo para solicitar el nombre del jugador
 	public function setJugador($nombre){
-		$this->$jugador = $nombre;
+		$this->jugador = $nombre;
+	}
+
+	public function reiniciarJuego(){
+		$this->$tablero = array('-', '-', '-', '-', '-', '-', '-', '-', '-'); //Tablero de tic tac toe
+		$this->casillasRestantes = 9
 	}
 
 	//Metodo que retorna el array que representa el tablero
 	public function getBoard(){ //retorna el array 
-		return $this->$tablero;
+		return implode($this->tablero);
 	}
 }
 ?>

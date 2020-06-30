@@ -14,6 +14,7 @@
 	<!-- Tipos complejos -->
 
 	<types>
+		<xsd:schema targetNamespace="urn:ECCI_B77519_B72097_Gato"/>
 	</types>
 
 	<!-- Mensajes para comunicarse con la clase Gato. -->
@@ -26,7 +27,9 @@
 
 	<message name="juegaMaquinaIn"/>
 
-	<message name="juegaMaquinaOut"/>
+  <message name="juegaMaquinaOut">
+    <part name="return" type="xsd:int"/>
+  </message>
 
 	<message name="checkWinIn">
 		<part name="casilla" type="xsd:int"/>
@@ -35,18 +38,18 @@
 
 	<message name="checkWinOut">
 		<part name="return" type="xsd:boolean"/>
-	<message>
+	</message>
 
 
 	<message name="checkCasillasIn">
 		<part name="contigua1" type="xsd:int"/>
 		<part name="contigua2" type="xsd:int"/>
 		<part name="simbolo" type="xsd:string"/>
-	<message/>
+	</message>
 
 	<message name="checkCasillasOut">
 		<part name="return" type="xsd:boolean"/>
-	<message>
+	</message>
 
 	<message name="getCasillasRestantesIn"/>
 
@@ -105,8 +108,8 @@
 		</operation>
 		<operation name="getBoard">
 			<documentation>Gato::getBoard() Metodo que retorna el array que representa el tablero</documentation>
-			<input message="tns:getResultadosIn"/>
-			<output message="tns:getResultadosOut"/>
+			<input message="tns:getBoardIn"/>
+			<output message="tns:getBoardOut"/>
 		</operation>
 	</portType>
 
@@ -220,7 +223,7 @@
 
 	<service name="ECCI_B77519_B72097_GatoService">
 		<port name="ECCI_B77519_B72097_GatoPort" binding="tns:ECCI_B77519_B72097_GatoBinding">
-			<soap:address location="http://titanic.ecci.ucr.ac.cr/~eb77519/Gato/RPC-Encode/?wsdl"/>
+			<soap:address location="http://titanic.ecci.ucr.ac.cr/~eb77519/Gato/RPC-Encode/"/>
 		</port>
 	</service>
 </definitions>
